@@ -121,13 +121,15 @@
       }
 
       .divider {
-        width: 1px;
-        height: 100%;
-        min-height: 220px;
-        background: var(--line);
-        border-radius: 999px;
-        justify-self: center;
-      }
+  width: 1px;
+  height: 160px;          /* shorter, controlled */
+  background: var(--line);
+  border-radius: 999px;
+  justify-self: center;
+  align-self: center;     /* center it vertically */
+  margin-top: 6px;        /* tiny nudge to align with first row */
+}
+
 
       .brand-list {
         margin: 0;
@@ -159,7 +161,7 @@
         }
 
         .divider {
-          min-height: 200px;
+          height: 140px;
         }
 
         .bg-icon img {
