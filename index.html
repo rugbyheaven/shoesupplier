@@ -109,24 +109,14 @@ body::before {
     }
 
     .brands {
-  margin: clamp(36px, 6vw, 64px) auto 0;
+  margin: clamp(28px, 5vw, 52px) auto 0;
   width: 100%;
-  max-width: 560px;              /* smaller container */
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: clamp(14px, 2.5vw, 28px);
-  align-items: start;
-  justify-items: center;         /* centers each column content */
-  text-align: center;            /* centers list text */
+  max-width: 420px;   /* keeps it tidy */
+  text-align: center;
 }
 
-.divider {
-  width: 1px;
-  min-height: 240px;
-  background: var(--line);
-  border-radius: 999px;
-  justify-self: center;
-}
+.brands .divider { display: none; } /* in case any remains */
+
 
 .brand-list {
   margin: 0;
