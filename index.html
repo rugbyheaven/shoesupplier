@@ -16,6 +16,7 @@
         --bg: #0e1413; /* deep charcoal/green */
         --text: #f3f5f5; /* off-white */
         --muted: rgba(243, 245, 245, 0.8);
+        --line: rgba(243, 245, 245, 0.18);
         --maxw: 980px;
       }
 
@@ -106,12 +107,26 @@
         color: var(--muted);
       }
 
-      /* Single-column brand list container */
+      /* 3-column brands block */
       .brands {
         margin: clamp(28px, 5vw, 52px) auto 0;
         width: 100%;
-        max-width: 420px;   /* tidy, centered block */
+        max-width: 720px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr auto 1fr; /* col | divider | col | divider | col */
+        gap: clamp(14px, 2.5vw, 28px);
+        align-items: start;
+        justify-items: center;
         text-align: center;
+      }
+
+      .divider {
+        width: 1px;
+        height: 100%;
+        min-height: 220px;
+        background: var(--line);
+        border-radius: 999px;
+        justify-self: center;
       }
 
       .brand-list {
@@ -119,7 +134,7 @@
         padding: 0;
         list-style: none;
         width: 100%;
-        max-width: 420px; /* single column: allow full container width */
+        max-width: 220px;
         font-weight: 700;
         font-style: italic;
         font-size: clamp(16px, 1.9vw, 20px);
@@ -130,11 +145,21 @@
 
       .brand-list li { margin: 4px 0; }
 
-      /* Mobile: keep it one column, just scale typography a touch */
+      /* Mobile: keep 3 columns (no stacking), shrink type a bit */
       @media (max-width: 640px) {
+        .brands {
+          max-width: 94vw;
+          gap: 12px;
+        }
+
         .brand-list {
-          font-size: 14px;
+          max-width: none;
+          font-size: 13px;
           line-height: 1.45;
+        }
+
+        .divider {
+          min-height: 200px;
         }
 
         .bg-icon img {
@@ -142,6 +167,11 @@
           top: 14%;
           width: min(680px, 120vw);
         }
+      }
+
+      @media (max-width: 380px) {
+        .brand-list { font-size: 12px; }
+        .brands { gap: 10px; }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -168,9 +198,19 @@
             <li>Brooks</li>
             <li>Saucony</li>
             <li>adidas</li>
+          </ul>
+
+          <div class="divider" aria-hidden="true"></div>
+
+          <ul class="brand-list">
             <li>HOKA</li>
             <li>New Balance</li>
             <li>ASICS</li>
+          </ul>
+
+          <div class="divider" aria-hidden="true"></div>
+
+          <ul class="brand-list">
             <li>Mizuno</li>
             <li>INOV8</li>
             <li>On</li>
