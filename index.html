@@ -3,11 +3,195 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Coming soon</title>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <title>shoesupplier.co.uk // Coming Soon...</title>
   </head>
-  <body style="font-family: system-ui; max-width: 720px; margin: 64px auto; padding: 0 16px;">
-    <h1>Coming soon</h1>
-    <p>We’re working on something new. Check back soon.</p>
-    <p>Contact: <a href="mailto:hello@example.com">hello@example.com</a></p>
-  </body>
+<body>
+  <style>
+    /* Import DM Sans without needing to touch <head> */
+    @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap");
+
+    :root {
+      --bg: #0e1413;      /* deep charcoal/green */
+      --text: #f3f5f5;    /* off-white */
+      --muted: rgba(243, 245, 245, 0.8);
+      --line: rgba(243, 245, 245, 0.18);
+      --maxw: 980px;
+    }
+
+    /* Reset-ish */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 20% 15%, rgba(0, 255, 200, 0.08), transparent 60%),
+                  radial-gradient(900px 700px at 80% 20%, rgba(0, 140, 120, 0.12), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(28px, 4vw, 56px) 18px;
+    }
+
+    /* Background icon */
+    .bg-icon {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .bg-icon img {
+      position: absolute;
+      right: -18%;
+      top: 8%;
+      width: min(720px, 92vw);
+      height: auto;
+      opacity: 0.10; /* requested 10% */
+      transform: rotate(0deg);
+      filter: saturate(1.05);
+    }
+
+    .content {
+      width: 100%;
+      max-width: var(--maxw);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .wordmark {
+      width: min(420px, 78vw);
+      height: auto;
+      display: block;
+      margin: 0 auto clamp(22px, 3.2vw, 34px);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.05;
+      font-weight: 900;     /* Black */
+      font-style: italic;   /* Italic */
+      letter-spacing: -0.02em;
+    }
+
+    .subcopy {
+      margin: 0 auto;
+      max-width: 40ch;
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 1.45;
+      font-weight: 700;   /* Bold */
+      font-style: italic; /* Italic */
+      color: var(--muted);
+    }
+
+    .brands {
+      margin: clamp(36px, 6vw, 64px) auto 0;
+      max-width: 720px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: clamp(18px, 3vw, 36px);
+      align-items: start;
+      text-align: left;
+    }
+
+    .divider {
+      width: 1px;
+      height: 100%;
+      background: var(--line);
+      justify-self: center;
+      border-radius: 999px;
+      min-height: 220px;
+    }
+
+    .brand-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-weight: 700;
+      font-style: italic;
+      font-size: clamp(16px, 1.9vw, 20px);
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      color: rgba(243, 245, 245, 0.88);
+    }
+    .brand-list li { margin: 6px 0; }
+
+    /* Mobile layout */
+    @media (max-width: 640px) {
+      .brands {
+        grid-template-columns: 1fr;
+        text-align: center;
+        max-width: 520px;
+      }
+      .divider {
+        width: 100%;
+        height: 1px;
+        min-height: 0;
+        margin: 10px 0;
+      }
+      .brand-list {
+        text-align: center;
+      }
+      .bg-icon img {
+        right: -35%;
+        top: 14%;
+        width: min(680px, 120vw);
+      }
+    }
+
+    /* Respect reduced motion (nothing animated, but keeps things tidy if you add later) */
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto; }
+    }
+  </style>
+
+  <main class="page" role="main">
+    <div class="bg-icon" aria-hidden="true">
+      <img src="Icon.svg" alt="" />
+    </div>
+
+    <div class="content">
+      <img class="wordmark" src="Wordmark.svg" alt="Shoe Supplier" />
+
+      <h1>Coming soon...</h1>
+      <p class="subcopy">We’re working on bringing top shoe brands<br />direct to your door.</p>
+
+      <section class="brands" aria-label="Brands">
+        <ul class="brand-list">
+          <li>Muck</li>
+          <li>Hush Puppies</li>
+          <li>Skechers</li>
+          <li>CAT</li>
+          <li>Cotswold</li>
+          <li>Rocket Dog</li>
+          <li>Crocs</li>
+          <li>Amblers Safety</li>
+        </ul>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <ul class="brand-list">
+          <li>Dunlop</li>
+          <li>Divaz</li>
+          <li>Base London</li>
+          <li>Cole Haan</li>
+          <li>Timberlan Pro</li>
+          <li>Riva</li>
+          <li>Sperry</li>
+          <li>Hunter</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</body>
+
 </html>
